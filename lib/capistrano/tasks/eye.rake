@@ -2,7 +2,6 @@ namespace :eye do
   task :load do
     on release_roles(:app) do
       within(release_path) do
-        execute :mkdir, "-pv", "$HOME/eye"
         execute :eye, :load,  fetch(:eye_config, "./config/#{fetch(:application)}.eye")
       end
     end
